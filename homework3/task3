@@ -1,0 +1,15 @@
+numbers = [1.1, 1.2, 3.1, 5, 10.01]
+nums_without_int = []
+for i in range(len(numbers)):
+    if type(numbers[i]) == float:
+        nums_without_int.append(round(numbers[i] - int(numbers[i]), 2))
+max_num = nums_without_int[0]
+min_num = nums_without_int[0]
+for i in range(1, len(nums_without_int)):
+    if nums_without_int[i] > max_num:
+        max_num = nums_without_int[i]
+    elif nums_without_int[i] < min_num:
+        min_num = nums_without_int[i]
+result = max_num - min_num    
+  
+print(f'{numbers} разница между максимальным и минимальным значением дробной части равна {result}')
