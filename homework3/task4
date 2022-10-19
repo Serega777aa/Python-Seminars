@@ -4,3 +4,4 @@ while n > 0:
     binar = str(n % 2) + binar
     n //= 2
 print(binar)
+  

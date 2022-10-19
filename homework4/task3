@@ -1,0 +1,6 @@
+s = input('Задайте последовательность цифр: ')
+ist = []
+for i in s:
+    if s.count(i) == 1:
+        ist.append(int(i))
+print(ist)

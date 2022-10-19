@@ -1,0 +1,26 @@
+n = int(input('Задайте натуральное число: '))
+
+def get_simple_multiply(num):
+    ist = []
+    while num > 1:
+        d = 2
+        while num % d != 0:
+            d += 1
+        ist.append(d)
+        num /= d
+    return ist
+
+def get_simple_numbers(num):
+    ist = []
+    for i in range(2, num + 1):
+        count = 0
+        for j in range(2, num + 1):
+            if i % j == 0:
+                count += 1
+        if count == 1:
+            ist.append(i)
+    return ist
+
+print(f'{get_simple_multiply(n)} --> Список простых множителей')
+print(f'{get_simple_numbers(n)} --> Список простых чисел')
+
