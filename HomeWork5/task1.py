@@ -1,0 +1,7 @@
+f = open('abv_in_words.txt', 'r', encoding='utf8')
+s = f.read()
+print(s)
+ist = s.split()
+ist = filter(lambda x: 'абв' not in x, ist)
+s = ' '.join(ist)
+print(s)
