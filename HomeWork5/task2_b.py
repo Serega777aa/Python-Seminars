@@ -7,8 +7,13 @@ def input_count(total_count):
     return count
 
 def bot_move(total_count):
-    count = randint(1, 28)
-    while count > total_count:
+    if total_count <= 28:
+        count = total_count
+    elif total_count > 2001:
+        count = total_count - 2001
+    elif (total_count + count_1) % 29 == 0:
+        count = 29 - count_1
+    else:
         count = randint(1, 28)
     return count
     
