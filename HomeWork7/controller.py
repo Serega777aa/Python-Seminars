@@ -1,24 +1,30 @@
 import view
 import input_contact 
 import output_contact
+import delete
 
-def start():   
-    n = view.input_info('Выберите действие: \n1 - Записать контакт \n2 - Показать все контакты \n3 - Найти контакт \n')
+
+def start(n = view.select_option()):   
+    
     if n == '1':
-        data = input('Введите фамилию имя телефон: ')
-        input_contact.add_contact(data)
+        k = view.select_format()
+        if k == '1':
+            input_contact.add_contact_txt(view.input_info('Введите контакт: '))
+        if k == '2':
+            input_contact.add_contact_csv(view.input_info('Введите контакт: '))
     elif n == '2':
         view.show_info(output_contact.read_contact())
     elif n == '3':
-        data =  view.input_info('Введите фамилию, имя или номер: ')
-        lst = ([i for i in output_contact.read_contact().split('\n')])
-        count = 0
-        for i in lst:
-            if data.lower() in i.lower():
-                view.show_info(i)
-                count += 1
-        if count == 0:
-                view.show_info('Нет такого контакта')
+        output_contact.find_contact(view.input_info('Введите фамилию, имя или номер: '))
+    elif n == '4':
+        delete.del_contact(view.input_info('Введите фамилию, имя или номер: '))
+    elif n == '5':
+        k = view.select_del()
+        if k == '1':
+            delete.del_all_contact()
+        else:
+            start(n = view.select_option())
+        
 
             
     else: 
